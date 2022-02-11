@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
+import Nav from './components/Nav'
+import SpaceExplorer from './components/SpaceExplorer'
+import AnimatedCharacter from './components/AnimatedCharacter'
+import TheRoom from './components/TheRoom'
 
-function App() {
+import './scss/app.scss'
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <HashRouter>
+      <Nav/>      
+      <Switch>          
+        <Route path="/space-ex" component={SpaceExplorer}/>        
+        <Route path="/anim-char" component={AnimatedCharacter}/>     
+        <Route path="/the-room" component={TheRoom}/>     
+        <Redirect from="*" to="/space-ex"/>
+      </Switch>
+    </HashRouter>
+  )
 }
-
-export default App;

@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root, .app{
+  @extend %fs;
+}
+
+body{
+  overflow: hidden;
+}
+
+.nav-link{
+  @include pa(0, "", "", 0, "%");
+  z-index: 1;
+  a{
+    color: $w;    
+    margin-right: 10px;
+  }
+}
+
+.ctn-outer{
+  @extend %fs;
+  @include pa(0, 0);
+  span{
+    color: $w;
+    @include pa(0, 0);
+  }
+}
